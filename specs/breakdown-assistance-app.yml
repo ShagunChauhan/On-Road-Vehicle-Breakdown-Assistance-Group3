@@ -1,0 +1,32 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: breakdown-assistance
+  namespace: default
+spec:
+  replicas: 1
+  template:
+    metadata:
+      name: breakdown-assistance
+      labels:
+        app: breakdown-assistance
+    spec:
+      containers:
+      - name: breakdown-assistance
+        env:
+          - name: POSTGRES_USER
+            valueFrom:
+              configMapKeyRef:
+                name: postgres-config
+                key: postgres_user
+          - name: POSTGRES_PASSWORD
+            valueFrom:
+              configMapKeyRef:
+                name: postgres-config
+                key: postgres_password
+          - name: POSTGRES_HOST
+            valueFrom:
+              configMapKeyRef:
+                name: hostname-config
+                key: postgres_host
+        image: shagunchauhan/breakdown-assistance

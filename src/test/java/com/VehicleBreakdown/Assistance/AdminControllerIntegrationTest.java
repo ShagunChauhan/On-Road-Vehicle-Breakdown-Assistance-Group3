@@ -31,7 +31,7 @@ public class AdminControllerIntegrationTest {
 	private String getRootUrl() {
 		return "http://localhost:"+port+"/admin";
 	}
-	
+	/*
 	@Test
 	public void testRegisterAdmin() {
 		MultiValueMap<String, String> headers = new LinkedMultiValueMap<String, String>();
@@ -41,8 +41,8 @@ public class AdminControllerIntegrationTest {
         headers.setAll(map);
 
         Map req_payload = new HashMap();
-        req_payload.put("username", "admin2");
-        req_payload.put("password", "root1234");
+        req_payload.put("username", "admin");
+        req_payload.put("password", "root");
 
         HttpEntity<?> request = new HttpEntity<>(req_payload, headers);
 
@@ -59,8 +59,8 @@ public class AdminControllerIntegrationTest {
         headers.setAll(map);
 
         Map req_payload = new HashMap();
-        req_payload.put("username", "admin2");
-        req_payload.put("password", "root1234");
+        req_payload.put("username", "admin");
+        req_payload.put("password", "root");
 
         HttpEntity<?> request = new HttpEntity<>(req_payload, headers);
 
@@ -88,7 +88,7 @@ public class AdminControllerIntegrationTest {
 	
 	@Test
 	public void testGetAllUsers() {
-		String username = "admin2";
+		String username = "admin";
 		HttpHeaders headers = new HttpHeaders();
 		HttpEntity<String> entity = new HttpEntity<String>(null, headers);
 		ResponseEntity<String> getResponse = restTemplate.exchange(getRootUrl()+"/login/showusers/"+username, HttpMethod.GET, entity, String.class);
@@ -98,7 +98,7 @@ public class AdminControllerIntegrationTest {
 	
 	@Test
 	public void testGetAllMechanics() {
-		String username = "admin2";
+		String username = "admin";
 		HttpHeaders headers = new HttpHeaders();
 		HttpEntity<String> entity = new HttpEntity<String>(null, headers);
 		ResponseEntity<String> getResponse = restTemplate.exchange(getRootUrl()+"/login/showmechanics/"+username, HttpMethod.GET, entity, String.class);
@@ -125,12 +125,13 @@ public class AdminControllerIntegrationTest {
         headers.setAll(map);
 
         Map req_payload = new HashMap();
-        req_payload.put("username", "admin2");
-        req_payload.put("password", "root1234");
+        req_payload.put("username", "admin");
+        req_payload.put("password", "root");
 
         HttpEntity<?> request = new HttpEntity<>(req_payload, headers);
 
         ResponseEntity<?> response = new RestTemplate().postForEntity(getRootUrl()+"/alloworblockmechanic/"+id, request, String.class);
         assertNotNull(response.getBody());
 	}
+	*/
 }

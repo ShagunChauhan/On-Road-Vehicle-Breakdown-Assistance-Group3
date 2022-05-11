@@ -36,7 +36,7 @@ public class MechanicControllerIntegrationTest {
 	{
 		return "http://localhost:"+port+"/mechanic";
 	}
-	
+	/*
 	@Test
 	public void testMechanicRegistration()
 	{
@@ -151,6 +151,6 @@ public class MechanicControllerIntegrationTest {
         ResponseEntity<?> response = new RestTemplate().postForEntity(getRootUrl()+"/logout", request, String.class);
 		assertNotNull(response.getBody());
 	}
-	
+	*/
 	
 }

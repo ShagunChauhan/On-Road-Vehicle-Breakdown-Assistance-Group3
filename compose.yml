@@ -1,0 +1,33 @@
+version: '3.9'
+services: 
+    db:
+        image: 'postgres:14-alpine'
+        volumes:
+            - db_data:/var/lib/postgres
+        restart: always
+        ports:
+            - "5432:5432"
+        environment:
+            - POSTGRES_USER=postgres
+            - POSTGRES_PASSWORD=root
+            - POSTGRES_DB=OnRoadVehicleBreakdownAssistanceDatabase
+    
+    app:
+        depends_on:
+            - db
+        image: 'breakdown-assistant'
+        build:
+            context: .
+        volumes:
+            - app_data:/var/lib/tomcat7/webapps/
+        ports:
+            - "8080:8080"
+        restart: always
+        environment:
+            - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/OnRoadVehicleBreakdownAssistanceDatabase
+            - SPRING_DATASOURCE_USERNAME=postgres
+            - SPRING_DATASOURCE_PASSWORD=root
+            - SPRING_JPA_HIBERNATE_DDL_AUTO=update
+volumes:
+    db_data: {}
+    app_data: {}
