@@ -1,9 +1,12 @@
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: breakdown-assistance
   namespace: default
 spec:
+  selector:
+    matchLabels:
+      app: breakdown-assistance
   replicas: 1
   template:
     metadata:
@@ -29,4 +32,4 @@ spec:
               configMapKeyRef:
                 name: hostname-config
                 key: postgres_host
-        image: shagunchauhan/breakdown-assistance
+        image: shagunchauhan/on-road-vehicle-breakdown-assistance-system:sprint1
