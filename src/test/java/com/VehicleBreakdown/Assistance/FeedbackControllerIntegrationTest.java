@@ -24,7 +24,7 @@ public class FeedbackControllerIntegrationTest {
 	private String getRootUrl() {
 		return "http://localhost:"+port;
 	}
-	/*
+	
 	@Test
 	public void testGetAllFeedback()
 	{
@@ -34,5 +34,5 @@ public class FeedbackControllerIntegrationTest {
 		System.out.println(response);
 		assertNotNull(response.getBody());
 	}
-	*/
+	
 }

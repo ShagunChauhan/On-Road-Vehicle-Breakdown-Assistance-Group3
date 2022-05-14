@@ -31,7 +31,7 @@ public class AdminControllerIntegrationTest {
 	private String getRootUrl() {
 		return "http://localhost:"+port+"/admin";
 	}
-	/*
+	
 	@Test
 	public void testRegisterAdmin() {
 		MultiValueMap<String, String> headers = new LinkedMultiValueMap<String, String>();
@@ -133,5 +133,5 @@ public class AdminControllerIntegrationTest {
         ResponseEntity<?> response = new RestTemplate().postForEntity(getRootUrl()+"/alloworblockmechanic/"+id, request, String.class);
         assertNotNull(response.getBody());
 	}
-	*/
+	
 }

@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: breakdown-assistance
+  name: breakdown-assistant
   namespace: default
 spec:
   selector:
     matchLabels:
-      app: breakdown-assistance
+      app: breakdown-assistant
   replicas: 1
   template:
     metadata:
-      name: breakdown-assistance
+      name: breakdown-assistant
       labels:
-        app: breakdown-assistance
+        app: breakdown-assistant
     spec:
       containers:
-      - name: breakdown-assistance
+      - name: breakdown-assistant
         env:
           - name: POSTGRES_USER
             valueFrom:
@@ -32,4 +32,19 @@ spec:
               configMapKeyRef:
                 name: hostname-config
                 key: postgres_host
-        image: shagunchauhan/on-road-vehicle-breakdown-assistance-system:sprint1
+        image: shagunchauhan/on-road-vehicle-breakdown-assistance-system:sprint2
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: breakdown-assistant
+  name: breakdown-assistant
+spec:
+  ports:
+    - name: breakdown-assistant
+      port: 8080
+      protocol: TCP
+  selector:
+    app: breakdown-assistant
+  type: NodePort

@@ -45,7 +45,7 @@ class UserControlleIntegrationTest {
 	{
 		return "http://localhost:"+port+"/user";
 	}
-	/*
+	
 	@Test
 	void testUserRegistration() {
 		MultiValueMap<String, String> headers = new LinkedMultiValueMap<String, String>();
@@ -216,7 +216,7 @@ class UserControlleIntegrationTest {
 		assertNotNull(updatedUser);
 		assertEquals(user.getEmailId(), updatedUser.getEmailId());
 	}
-	*/
+	
 	
 	
 
